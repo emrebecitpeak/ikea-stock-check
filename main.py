@@ -141,6 +141,6 @@ img = open("dataframe.png", 'rb').read()
 client = WebClient(os.environ['SLACK_API_TOKEN'])
 # Send the image
 client.files_upload(
-        channels = "emre-slack-api",
+        channels = "emre-slack-api-2",
         filename = "Apollo 11",
         content = img)
