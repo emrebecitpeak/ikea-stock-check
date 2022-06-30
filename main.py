@@ -106,7 +106,8 @@ def get_stock_info(prod_codes, df_codes):
 
 
 
-df_all = get_stock_info(['60474072',
+df_all = get_stock_info(['90505411',
+                         '60474072',
                          '50293604',
                          '20293568',
                          '00295549',
