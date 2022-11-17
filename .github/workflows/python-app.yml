@@ -5,7 +5,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 */4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -30,6 +30,6 @@ jobs:
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium dataframe-image slack_sdk
       - name: Run the scraping script
-        run: python main.py
+        run: python main_v2.py
         env:
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
