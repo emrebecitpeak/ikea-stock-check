@@ -106,7 +106,7 @@ urls = ['https://www.ikea.com.tr/urun/pax-beyaz-100x58x236-cm-gardirop-iskeleti-
         ]
 
 
-df_all = get_stock_info(urls)
+df_all = get_stock_info(urls[:2])
 
 
 df_all = df_all[['IKEA BAYRAMPAŞA', 'IKEA ÜMRANİYE', 'IKEA KARTAL', 'İNTERNET MAĞAZASI']]
