@@ -122,7 +122,7 @@ dfi.export(df_all, 'dataframe.png')
 
 img = open("dataframe.png", 'rb').read()
 # Authenticate to the Slack API via the generated token
-client = WebClient('xoxb-8886420069-3678171107911-x1Cpns8zGf7qfyOkY1vTxxc1')
+client = WebClient(os.environ['SLACK_API_TOKEN'])
 # Send the image
 client.files_upload(
        channels = "emre-slack-api-2",
