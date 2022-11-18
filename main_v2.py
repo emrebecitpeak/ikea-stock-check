@@ -129,7 +129,7 @@ client.files_upload(
        filename = "Apollo 11",
        content = img)
 
-client.chat_postMessage(
-        channel="emre-ikea",
-        text='\n'.join(urls)
-    )
+# client.chat_postMessage(
+#        channel="emre-ikea",
+#        text='\n'.join(urls)
+#    )
