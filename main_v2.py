@@ -9,6 +9,7 @@ from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 from selenium.webdriver.chrome.service import Service as ChromiumService
 from webdriver_manager.core.utils import ChromeType
+import chromedriver_autoinstaller
 
 
 
@@ -26,6 +27,8 @@ def get_stock_info(prod_codes):
         from selenium.webdriver.chrome.options import Options
         from webdriver_manager.chrome import ChromeDriverManager
         from selenium.webdriver.common.by import By
+        
+        chromedriver_autoinstaller.install()
 
         def get_options():
             chrome_options = Options()
@@ -33,9 +36,30 @@ def get_stock_info(prod_codes):
             chrome_options.add_argument("--start-maximized")
             chrome_options.add_argument("--headless")
             return chrome_options
+        
+        chrome_options = webdriver.ChromeOptions()    
+        # Add your options as needed    
+        options = [
+          # Define window size here
+           "--window-size=1920,1080",
+            "--ignore-certificate-errors"
+
+            #"--headless",
+            #"--disable-gpu",
+            #"--window-size=1920,1200",
+            #"--ignore-certificate-errors",
+            #"--disable-extensions",
+            #"--no-sandbox",
+            #"--disable-dev-shm-usage",
+            #'--remote-debugging-port=9222'
+        ]
+
+        for option in options:
+            chrome_options.add_argument(option)
 
 
-        driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=get_options()))
+        driver = webdriver.Chrome(options = chrome_options)
+
 
         driver.get(url)
 
