@@ -7,6 +7,8 @@ import io
 import requests
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+from webdriver_manager.core.utils import ChromeType
+
 
 def get_stock_info(prod_codes):
     
@@ -31,7 +33,7 @@ def get_stock_info(prod_codes):
             return chrome_options
 
 
-        driver = webdriver.Chrome(ChromeDriverManager(version='108.0.5359.71').install(), options=get_options())
+        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=get_options())
         driver.get(url)
 
 
