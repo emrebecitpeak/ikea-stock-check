@@ -35,7 +35,7 @@ def get_stock_info(prod_codes):
             return chrome_options
 
 
-        driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), , options=get_options()))
+        driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=get_options()))
 
         driver.get(url)
 
