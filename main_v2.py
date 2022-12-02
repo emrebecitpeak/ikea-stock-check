@@ -7,7 +7,9 @@ import io
 import requests
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+from selenium.webdriver.chrome.service import Service as ChromiumService
 from webdriver_manager.core.utils import ChromeType
+
 
 
 def get_stock_info(prod_codes):
@@ -33,7 +35,8 @@ def get_stock_info(prod_codes):
             return chrome_options
 
 
-        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=get_options())
+        driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), , options=get_options()))
+
         driver.get(url)
 
 
